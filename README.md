@@ -17,11 +17,27 @@ where:
 
 ## Build
 
-TODO
+1. The intent
+2. The code handling the intent
+
+The interaction between the components involved in:
+- capturing the command/speach,
+- speach-to-text processing (NLP etc)
+- analyzing the text for commands, invocations, utterances etc and passing the context to backend
+- responding to the request & persisting data
+looks something like: ![flow](./resources/img/alexa-skill-interaction-flow.drawio.png "Skill interaction diagram")
 
 ## Test
 
-Via developer-console: TODO
+Via developer-console:
+> Me: open `remember birthday`  
+> Alexa: _Who's birthday would you like to save?_  
+> Me: Joe  
+> Alexa: _What date was joe born?_  
+> Me: `march 12th 1989`  
+> Alexa: _Could you confirm you want to save joe 's birthday as 1989-03-12 ?_  
+> Me: yes  
+> Alexa: _Saved joe's birthday!_  
 
 ## Next
 
