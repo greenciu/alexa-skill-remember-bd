@@ -1,0 +1,122 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "remember birthday",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "RememberBirthdayIntent",
+          "slots": [
+            {
+              "name": "person",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "{person}",
+                "I want to save {person} birthday"
+              ]
+            },
+            {
+              "name": "date",
+              "type": "AMAZON.DATE",
+              "samples": [
+                "{date}",
+                "{person} was born on {date}"
+              ]
+            }
+          ],
+          "samples": [
+            "Remember {person} was born on {date}",
+            "Remember {person} birthday",
+            "Save my birthday",
+            "Remember my birthday"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "RememberBirthdayIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.1302789881382"
+          },
+          "slots": [
+            {
+              "name": "person",
+              "type": "AMAZON.FirstName",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1302789881382.1056561072176"
+              }
+            },
+            {
+              "name": "date",
+              "type": "AMAZON.DATE",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1456686718020.1503969341752"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Intent.1302789881382",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Could you confirm you want to save {person} 's birthday as {date} ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1302789881382.1056561072176",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Who's birthday would you like to save?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1456686718020.1503969341752",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What date?"
+          },
+          {
+            "type": "PlainText",
+            "value": "What date was {person} born?"
+          }
+        ]
+      }
+    ]
+  }
+}
